@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21點</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="21.css">
+
+    <style>
+        .section-bg-origin {
+            background:
+                linear-gradient(rgba(30, 41, 59, 0.68), rgba(16, 185, 129, 0.6)),
+                url('./2.jpg') center center/cover no-repeat;
+        }
+
+        .section-bg-rules {
+            background:
+                linear-gradient(rgba(39, 55, 85, 0.65), rgba(16, 185, 129, 0.5)),
+                url('./card3.jpg') center center/cover no-repeat;
+        }
+
+        .section-bg-game {
+            background:
+                linear-gradient(rgba(12, 32, 65, 0.7), rgba(25, 135, 84, 0.5)),
+                url('./green4.jpg') center center/cover no-repeat;
+        }
+
+        .section-bg-origin,
+        .section-bg-rules,
+        .section-bg-game {
+            border-radius: 32px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        }
+
+        /* .section-bg-origin p {
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+        } */
+    </style>
+</head>
+
+<body>
+
+    <div id="welcomeCover" style="
+    position:fixed; z-index:9999; inset:0; 
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    background:
+        linear-gradient(rgba(0,0,0,0.65),rgba(25,135,84,0.7)), 
+        url('./1.jpg') center center/cover no-repeat;
+">
+        <div style="
+        background: rgba(255,255,255,0.16);
+        backdrop-filter: blur(5px);
+        border-radius: 32px;
+        padding: 48px 40px 40px 40px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        display:flex; flex-direction:column; align-items:center;
+    ">
+            <h1 class="display-1 fw-bold text-white mb-4" style="text-shadow:2px 2px 10px #000;">
+                <i class="fas fa-heart text-danger me-3"></i>21點
+            </h1>
+            <p class="lead text-white mb-5 fs-3" style="text-shadow:2px 2px 10px #000;">
+                經典的紙牌遊戲，挑戰運氣與策略的完美結合
+            </p>
+            <button id="enterBtn" class="btn btn-warning btn-lg px-5 py-3 fs-4 shadow-lg" style="border-radius: 32px;">
+                開始
+            </button>
+        </div>
+    </div>
+
+
+    <div id="mainContent" style="display:none;">
+        <!-- 導航欄 -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#">
+                    <i class="fas fa-spade me-2"></i>21點遊戲
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#origin">遊戲起源</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#rules">遊戲規則</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#game">開始遊戲</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 遊戲起源區域 -->
+        <section id="origin" class="py-5 my-5 section-bg-origin">
+            <div class="container text-center text-white">
+                <h2 class="section-title display-4 fw-bold">
+                    <i class="fas fa-history me-3"></i>遊戲起源
+                </h2>
+                <div class="row" ;>
+                    <div class="col-lg-8 mx-auto">
+                        <div class="card-custom p-4">
+                            <div class="origin-timeline">
+                                <div class="timeline-item">
+                                    <h4 class="text-success">17世紀 - 法國起源</h4>
+                                    <p>21點的前身可以追溯到17世紀的法國，當時稱為「Vingt-et-Un」（意為二十一）。這個遊戲在法國宮廷中非常受歡迎，貴族們經常在宴會上玩這個遊戲。</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h4 class="text-success">18世紀 - 傳播歐洲</h4>
+                                    <p>隨著貿易和文化交流，21點逐漸傳播到整個歐洲。在不同的國家，遊戲規則略有變化，但核心概念保持不變：盡可能接近21點而不超過。</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h4 class="text-success">19世紀 - 美國發展</h4>
+                                    <p>19世紀時，歐洲移民將這個遊戲帶到了美國。為了吸引更多玩家，賭場提供特殊獎金：如果玩家拿到黑桃A和黑色J（黑傑克），可以獲得10:1的賠率。</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h4 class="text-success">20世紀至今 - 全球流行</h4>
+                                    <p>雖然特殊獎金後來被取消，但「Blackjack」這個名稱保留下來。現在21點已經成為世界上最受歡迎的賭場遊戲之一，無論是實體賭場還是網路遊戲都能見到它的身影。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 遊戲規則區域 -->
+        <section id="rules" class="py-5 mt-5 section-bg-rules">
+            <div class="container">
+                <h2 class="section-title text-center display-4 fw-bold">
+                    <i class="fas fa-book me-3"></i>遊戲規則
+                </h2>
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="card-custom p-4 mb-4">
+                            <h3 class="text-center mb-4 text-success">基本目標</h3>
+                            <p class="lead text-center">讓手中牌的點數總和盡可能接近21點，但不能超過21點，同時要比莊家的點數更高。</p>
+                        </div>
+
+                        <div class="rules-grid">
+                            <div class="rule-card text-center">
+                                <i class="fas fa-calculator"></i>
+                                <h4>牌值計算</h4>
+                                <ul class="list-unstyled">
+                                    <li>A = 1點 或 11點</li>
+                                    <li>2-10 = 面值點數</li>
+                                    <li>J, Q, K = 10點</li>
+                                </ul>
+                            </div>
+
+                            <div class="rule-card text-center">
+                                <i class="fas fa-hand-paper"></i>
+                                <h4>玩家選擇</h4>
+                                <ul class="list-unstyled">
+                                    <li><strong>要牌(Hit):</strong> 再拿一張牌</li>
+                                    <li><strong>停牌(Stand):</strong> 不再要牌</li>
+                                    <li><strong>雙倍下注:</strong> 加倍賭注並只拿一張牌</li>
+                                </ul>
+                            </div>
+
+                            <div class="rule-card text-center">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <h4>特殊情況</h4>
+                                <ul class="list-unstyled">
+                                    <li><strong>爆牌:</strong> 超過21點立即輸掉</li>
+                                    <li><strong>Black Jack:</strong> 前兩張牌為A+10點牌</li>
+                                    <li><strong>推牌:</strong> 與莊家同點數為平手</li>
+                                </ul>
+                            </div>
+
+                            <div class="rule-card text-center">
+                                <i class="fas fa-user-tie"></i>
+                                <h4>莊家規則</h4>
+                                <ul class="list-unstyled">
+                                    <li>16點或以下必須要牌</li>
+                                    <li>17點或以上必須停牌</li>
+                                    <li>所有玩家完成後才翻牌</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 遊戲區域 -->
+        <section id="game" class="py-5 mt-5 section-bg-game">
+            <div class="container">
+                <h2 class="section-title text-center display-4 fw-bold">
+                    <i class="fas fa-gamepad me-3"></i>開始遊戲
+                </h2>
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+
+                        <!-- 籌碼與下注區塊 -->
+                        <div class="d-flex flex-wrap justify-content-center align-items-center mb-3">
+                            <div class="me-3 text-white fw-bold">
+                                <i class="fas fa-coins me-1"></i>籌碼: <span id="playerChips">3000</span>
+                                <button id="addChipsBtn" class="btn btn-outline-success btn-game ms-3" style="
+                                    display:none" ;>
+                                    <i class="fas fa-plus-circle me-2"></i>儲值
+                                </button>
+                            </div>
+                            <div class="me-3">
+                                <input type="number" id="betAmount" class="form-control" value="" min="10" step="10"
+                                    style="width: 110px; display: inline-block;">
+                            </div>
+                            <button id="betBtn" class="btn btn-info btn-game">下注</button>
+                        </div>
+                        <!-- 統計顯示 -->
+                        <div class="text-center mb-3 text-white">
+                            勝: <span id="winCount">0</span>
+                            &nbsp;負: <span id="loseCount">0</span>
+                            &nbsp;平: <span id="drawCount">0</span>
+                        </div>
+
+
+
+                        <div class="game-area">
+                            <!-- 莊家區域 -->
+                            <div class="text-center mb-4">
+                                <h4 class="text-white mb-3">
+                                    <i class="fas fa-user-tie me-2"></i>莊家
+                                </h4>
+                                <div id="dealerCards" class="mb-3">
+                                    <!-- 莊家的牌會顯示在這裡 -->
+                                </div>
+                                <div id="dealerScore" class="score-display">
+                                    莊家點數: <span id="dealerPoints">?</span>
+                                </div>
+                            </div>
+
+                            <!-- 玩家區域 -->
+                            <div class="text-center mb-4">
+                                <h4 class="text-white mb-3">
+                                    <i class="fas fa-user me-2"></i>玩家
+                                </h4>
+                                <div id="playerCards" class="mb-3">
+                                    <!-- 玩家的牌會顯示在這裡 -->
+                                </div>
+                                <div id="playerScore" class="score-display">
+                                    玩家點數: <span id="playerPoints">0</span>
+                                </div>
+                            </div>
+
+                            <!-- 遊戲控制按鈕 -->
+                            <div class="text-center mb-4">
+                                <button id="newGameBtn" class="btn btn-success btn-game">
+                                    <i class="fas fa-play me-2"></i>開始新遊戲
+                                </button>
+                                <button id="hitBtn" class="btn btn-warning btn-game" disabled>
+                                    <i class="fas fa-plus me-2"></i>要牌
+                                </button>
+                                <button id="standBtn" class="btn btn-danger btn-game" disabled>
+                                    <i class="fas fa-hand-paper me-2"></i>停牌
+                                </button>
+                            </div>
+
+                            <!-- 遊戲狀態 -->
+                            <div id="gameStatus" class="text-center">
+                                <h4 class="text-white">點擊「開始新遊戲」來開始！</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 頁腳 -->
+        <footer class="py-4 text-center text-white section-bg-foot">
+            <div class="container">
+                <p>&copy;小賭怡情，大賭郭台銘</p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="./21.js "></script>
+    <script>document.getElementById('enterBtn').addEventListener('click', function () {
+            document.getElementById('welcomeCover').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+        });</script>
+</body>
+
+</html>
